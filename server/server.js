@@ -26,10 +26,10 @@ app.post('/', async (req, res) => {
 		const prompt = req.body.prompt;
 
 		const response = await openai.createCompletion({
-			model: 'text-babbage-001',
-			prompt: `${prompt}`,
-			temperature: 0,
-			max_tokens: 50,
+			model: 'text-curie-001',
+			prompt: '',
+			temperature: 0.55,
+			max_tokens: 100,
 			top_p: 1,
 			frequency_penalty: 0.5,
 			presence_penalty: 0,

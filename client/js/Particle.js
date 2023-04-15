@@ -1,3 +1,5 @@
+export { Particle };
+
 class Particle {
 	constructor(effect, x, y, color) {
 		this.effect = effect;
@@ -21,9 +23,6 @@ class Particle {
 		this.y += (this.vy *= this.friction) + (this.originY - this.y) * this.ease;
 	}
 	warp() {
-		// this.x = Math.random() * this.effect.width;
-		// this.y = Math.random() * this.effect.height;
-		// this.ease = 0.05;
 		this.vx = Math.random() * 2 - 1;
 		this.vy = Math.random() * 2 - 1;
 		this.originX += this.vx * (this.effect.width * 2);

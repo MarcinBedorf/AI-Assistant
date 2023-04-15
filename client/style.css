@@ -47,15 +47,14 @@
 	flex: 1;
 	display: flex;
 	width: 100%;
+	max-width: 1280px;
 	height: 80%;
 	overflow-y: scroll;
 	flex-direction: column;
 	align-content: flex-end;
 	gap: 10px;
-
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-
 	padding-bottom: 20px;
 	scroll-behavior: smooth;
 }
@@ -75,11 +74,10 @@
 }
 
 .chat {
+	display: flex;
 	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
-
-	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	gap: 10px;
@@ -89,9 +87,7 @@
 	width: 36px;
 	height: 36px;
 	border-radius: 5px;
-
 	background: #5436da;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -109,14 +105,11 @@
 
 .message {
 	flex: 1;
-
 	color: #dcdcdc;
 	font-size: 20px;
-
 	max-width: 100%;
 	overflow-x: scroll;
 	white-space: pre-wrap;
-
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
@@ -125,17 +118,22 @@
 	display: none;
 }
 
-form {
-	position: absolute;
-	bottom: 0;
+.input-container {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
 	max-width: 1280px;
 	max-height: 250px;
+}
+
+form {
+	display: flex;
+	width: 100%;
 	margin: 0 auto;
 	padding: 10px;
-	background: #40414f;
-
-	display: flex;
+	background: var(--dark-grey);
 	flex-direction: row;
 	gap: 10px;
 	border: 2px solid var(--dark-grey);

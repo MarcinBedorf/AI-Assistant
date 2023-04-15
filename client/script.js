@@ -1,3 +1,4 @@
+import { Effect } from './js/Effect';
 import bot from './assets/bot.png';
 import user from './assets/user.svg';
 
@@ -42,7 +43,7 @@ window.addEventListener('load', function () {
 	});
 });
 
-const app = (document.getElementById('app').style.display = 'none');
+document.getElementById('app').style.display = 'none';
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
 
@@ -53,11 +54,10 @@ function loader(element) {
 
 	loadInterval = setInterval(() => {
 		element.textContent += '.';
+		if (element.textContent === '....') {
+			element.textContent = '';
+		}
 	}, 300);
-
-	if (element.textContent === '....') {
-		element.textContent === '';
-	}
 }
 
 function typeText(element, text) {
@@ -97,14 +97,17 @@ function chatStripe(isAi, value, uniqueId) {
 const handleSubmit = async e => {
 	e.preventDefault();
 	const data = new FormData(form);
-	console.log(chatContainer);
+	if (!data.get('prompt').trim()) {
+		return;
+	}
 	chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
 	form.reset();
 	const uniqueId = generateUniqueID();
-	chatContainer.innerHTML += chatStripe(true, '', uniqueId);
+	chatContainer.innerHTML += chatStripe(true, ' ', uniqueId);
 	chatContainer.scrollTop = chatContainer.scrollHeight;
 	const messageDiv = document.getElementById(uniqueId);
 	loader(messageDiv);
+
 	const response = await fetch('https://assistant-i7uf.onrender.com', {
 		method: 'POST',
 		headers: {
@@ -116,7 +119,7 @@ const handleSubmit = async e => {
 	});
 
 	clearInterval(loadInterval);
-	messageDiv.innerHTML = '';
+	messageDiv.innerHTML = ' ';
 
 	if (response.ok) {
 		const data = await response.json();
