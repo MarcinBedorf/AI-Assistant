@@ -385,3 +385,10 @@ form img {
 		opacity: 1;
 	}
 }
+
+@media (max-width: 768px) {
+  #app {
+    width: 90vw;
+	height: 90vh;;
+  }
+}
