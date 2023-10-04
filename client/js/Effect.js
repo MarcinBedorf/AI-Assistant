@@ -1,7 +1,6 @@
-export { Effect };
-import { Particle } from './Particle';
+import Particle from './Particle';
 
-class Effect {
+export default class Effect {
 	constructor(width, height) {
 		this.width = width;
 		this.height = height;

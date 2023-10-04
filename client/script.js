@@ -1,4 +1,4 @@
-import { Effect } from './js/Effect';
+import Effect from './js/Effect';
 import bot from './assets/bot.png';
 import user from './assets/user.svg';
 
