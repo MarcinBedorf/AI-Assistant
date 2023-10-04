@@ -27,7 +27,7 @@ window.addEventListener('load', function () {
 
 		let isAnimating = true;
 		function fadeOut() {
-			ctx.globalAlpha -= 0.01;
+			ctx.globalAlpha -= 0.015;
 			if (ctx.globalAlpha > 0 && isAnimating) {
 				requestAnimationFrame(fadeOut);
 			} else {
