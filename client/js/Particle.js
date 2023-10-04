@@ -1,6 +1,4 @@
-export { Particle };
-
-class Particle {
+export default class Particle {
 	constructor(effect, x, y, color) {
 		this.effect = effect;
 		this.x = Math.random() * this.effect.width;
